@@ -6,8 +6,9 @@ output: [summary, failure, execution_out]
 
 commit-msg:
   scripts:
-    "validate-message.sh":
+    "no-merge-commits.sh":
       runner: bash
+      use_stdin: true
 
 pre-push: 
   scripts:
