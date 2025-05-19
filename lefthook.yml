@@ -1,0 +1,15 @@
+# lefthook.yml
+colors:
+  red:   '#E6D8FF'
+  green: '#DFF8F4'
+output: [summary, failure, execution_out]
+
+commit-msg:
+  scripts:
+    "validate-message.sh":
+      runner: bash
+
+pre-push: 
+  scripts:
+    "hello-world.sh": 
+      runner: bash
