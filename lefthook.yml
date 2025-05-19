@@ -6,14 +6,14 @@ output: [summary, failure, execution_out]
 
 commit-msg:
   scripts:
-    "no-merge-commits.sh":
+    "validate-message.sh":
       runner: bash
-      use_stdin: true
 
 pre-push: 
   scripts:
-    "hello-world.sh": 
+    "no-merge-commits.sh":
       runner: bash
+      use_stdin: true
 
   commands:
     install:
