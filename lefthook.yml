@@ -11,9 +11,8 @@ commit-msg:
 
 pre-push: 
   scripts:
-    "no-merge-commits.sh":
+    "no-merges.sh":
       runner: bash
-      use_stdin: true
 
   commands:
     install:
