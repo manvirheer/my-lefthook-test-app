@@ -13,3 +13,14 @@ pre-push:
   scripts:
     "hello-world.sh": 
       runner: bash
+
+    commands:
+      install:
+        priority: 10
+        run: yarn 
+      build:
+        priority: 20
+        run: yarn build
+      start:
+        priority: 30
+        run: yarn start  
