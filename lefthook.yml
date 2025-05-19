@@ -5,15 +5,16 @@ colors:
 output: [summary, failure, execution_out]
 
 commit-msg:
-  scripts:
-    "validate-message.sh":
-      runner: bash
+  parallel: true
+  commands:
+    validate-message:
+      run: bash scripts/validate-message.sh   
+    no-merge-commit:
+      run: bash scripts/no-merge-commit.sh
+      fail_text: |
+        ⛔  Merge commit detected. Please rebase.
 
 pre-push: 
-  scripts:
-    "no-merges.sh":
-      runner: bash
-
   commands:
     install:
       priority: 10
