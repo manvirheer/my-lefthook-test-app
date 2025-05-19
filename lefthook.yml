@@ -21,6 +21,3 @@ pre-push:
     build:
       priority: 20
       run: yarn build
-    start:
-      priority: 30
-      run: yarn start  
