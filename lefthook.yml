@@ -6,11 +6,11 @@ output: [summary, failure, execution_out]
 
 commit-msg:
   parallel: true
-  commands:
-    validate-message:
-      run: bash scripts/validate-message.sh   
-    no-merge-commit:
-      run: bash scripts/no-merge-commit.sh
+  scripts:
+    validate-message.sh:
+      runner: bash   
+    no-merge-commit.sh:
+      runner: bash 
       fail_text: |
         ⛔  Merge commit detected. Please rebase.
 
