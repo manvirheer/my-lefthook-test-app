@@ -2,7 +2,10 @@
 colors:
   red:   '#E6D8FF'
   green: '#DFF8F4'
-output: [summary, failure, execution_out]
+
+# Printing the following message in the terminal
+# Reference: https://lefthook.dev/configuration/output.html
+output: [summary, failure, execution_out, execution]
 
 commit-msg:
   parallel: true
@@ -11,18 +14,18 @@ commit-msg:
       runner: bash   
     no-merge-commit.sh:
       runner: bash 
-      fail_text: |
-        ⛔  Merge commit detected. Please rebase.
 
-pre-push: 
+pre-push:
   commands:
-    # Print Start message
     start:
-      priority: 8
-      run: echo "Starting pre-push hook..."
+      priority: 1
+      run: echo "⏳  Running pre-push checks..."
     install:
-      priority: 10
-      run: yarn 
+      priority: 5
+      run: yarn --silent
     build:
-      priority: 20
-      run: yarn build
+      priority: 10
+      run: yarn build --silent
+    done:
+      priority: 99
+      run: echo "✅  All Pre-push checks completed"
