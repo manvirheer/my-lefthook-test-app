@@ -16,6 +16,10 @@ commit-msg:
 
 pre-push: 
   commands:
+    # Print Start message
+    start:
+      priority: 8
+      run: echo "Starting pre-push hook..."
     install:
       priority: 10
       run: yarn 
